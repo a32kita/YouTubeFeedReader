@@ -28,6 +28,9 @@ namespace YouTubeFeedReader
             return await YouTubeFeedDocument.LoadAsync(source);
         }
 
+        public async Task<YouTubeFeedDocument> LoadDocumentWithChannelIdAsync(string channelId)
+            => await this.LoadDocumentAsync(new Uri("https://www.youtube.com/feeds/videos.xml?channel_id=" + channelId));
+
 
         private void _checkDisposed()
         {
