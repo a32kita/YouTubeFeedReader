@@ -3,6 +3,25 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
 	<LangVersion>10</LangVersion>
+	<Company>Explorers of the Binary World / a32kita</Company>
+	<Authors>Explorers of the Binary World / a32kita</Authors>
+	<PackageProjectUrl>https://github.com/a32kita/YouTubeFeedReader</PackageProjectUrl>
+	<RepositoryUrl>https://github.com/a32kita/YouTubeFeedReader</RepositoryUrl>
+	<AssemblyVersion>$([System.DateTime]::Now.ToString('0.yy.M.dHH'))</AssemblyVersion>
+	<FileVersion>$([System.DateTime]::Now.ToString('0.yy.M.dHH'))</FileVersion>
+	<PackageTags>YouTube</PackageTags>
+	<Description>YouTube Feed Reader is a library for reading YouTube channel feeds in .NET.</Description>
+	<Version>$([System.DateTime]::Now.ToString('0.yy.M.dHH'))</Version>
+	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<Title>$(AssemblyName)</Title>
+	<PackageIcon>PackageIcon.png</PackageIcon>
+	<Configurations>Debug;Release;Beta</Configurations>
   </PropertyGroup>
-
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+	<Version>$([System.DateTime]::Now.ToString('0.yy.M.dHH'))-alpha-$([System.DateTime]::Now.ToString('mmss'))$([System.Guid]::NewGuid.ToString().Replace("-", "").Substring(0, 5))</Version>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Beta'">
+	<Version>$([System.DateTime]::Now.ToString('0.yy.M.dHH'))-beta-$([System.DateTime]::Now.ToString('mmss'))$([System.Guid]::NewGuid.ToString().Replace("-", "").Substring(0, 5))</Version>
+  </PropertyGroup>
 </Project>
