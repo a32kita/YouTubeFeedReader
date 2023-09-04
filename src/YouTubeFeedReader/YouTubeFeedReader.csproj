@@ -14,14 +14,18 @@
 	<Version>$([System.DateTime]::Now.ToString('0.yy.M.dHH'))</Version>
 	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
-	<Title>$(AssemblyName)</Title>
-	<PackageIcon>PackageIcon.png</PackageIcon>
-	<Configurations>Debug;Release;Beta</Configurations>
+	<Title>YouTube Feed Reader</Title>
+	<Configurations>Debug;Release</Configurations>
+	<Product>$(Title)</Product>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Debug'">
-	<Version>$([System.DateTime]::Now.ToString('0.yy.M.dHH'))-alpha-$([System.DateTime]::Now.ToString('mmss'))$([System.Guid]::NewGuid.ToString().Replace("-", "").Substring(0, 5))</Version>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)'=='Beta'">
 	<Version>$([System.DateTime]::Now.ToString('0.yy.M.dHH'))-beta-$([System.DateTime]::Now.ToString('mmss'))$([System.Guid]::NewGuid.ToString().Replace("-", "").Substring(0, 5))</Version>
   </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 </Project>
