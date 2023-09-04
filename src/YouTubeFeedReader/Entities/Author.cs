@@ -27,7 +27,7 @@ namespace YouTubeFeedReader.Entities
 
             var author = new Author();
             author.Name = element.Element(XmlNsAtom + "name").Value;
-            author.Uri = new Uri(element.Element(XmlNsAtom + "uri").Value);
+            author.Uri = ElementToUri(element.Element(XmlNsAtom + "uri"));
 
             return author;
         }

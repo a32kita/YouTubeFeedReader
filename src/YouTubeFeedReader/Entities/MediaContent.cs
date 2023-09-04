@@ -35,10 +35,10 @@ namespace YouTubeFeedReader.Entities
         public static MediaContent LoadFromXElement(XElement element)
         {
             var mediaContent = new MediaContent();
-            mediaContent.Url = new Uri(element.Attribute("url").Value);
+            mediaContent.Url = AttributeToUri(element.Attribute("url"));
             mediaContent.Type = element.Attribute("type").Value;
-            mediaContent.Width = Int32.Parse(element.Attribute("width").Value);
-            mediaContent.Height = Int32.Parse (element.Attribute("height").Value);
+            mediaContent.Width = AttributeToInt32(element.Attribute("width"));
+            mediaContent.Height = AttributeToInt32(element.Attribute("height"));
 
             return mediaContent;
         }

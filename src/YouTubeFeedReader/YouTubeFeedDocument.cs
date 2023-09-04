@@ -54,15 +54,10 @@ namespace YouTubeFeedReader
             await Task.Run(() =>
             {
                 var rootElem = XElement.Load(reader);
-                
-                var channelLinkElem = rootElem.Element(XmlNsAtom + "link");
-                document.ChannelLink = new Uri(channelLinkElem?.Attribute("href")?.Value);
-
+                document.ChannelLink = AttributeToUri(rootElem.Element(XmlNsAtom + "link")?.Attribute("href"));
                 document.Title = rootElem.Element(XmlNsAtom + "title")?.Value;
-
                 document.Author = Author.LoadFromXElement(rootElem.Element(XmlNsAtom + "author"));
-
-                document.Published = DateTimeOffset.Parse(rootElem.Element(XmlNsAtom + "published")?.Value);
+                document.Published = ElementToDateTimeOffset(rootElem.Element(XmlNsAtom + "published"));
 
                 document.Entries = new EntryCollection();
                 foreach (var ent in rootElem.Elements(XmlNsAtom + "entry"))

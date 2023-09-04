@@ -16,7 +16,7 @@ namespace YouTubeFeedReader.Entities
         public static MediaStatistics LoadFromXElement(XElement element)
         {
             var mediaStatistics = new MediaStatistics();
-            mediaStatistics.Views = UInt64.Parse(element.Attribute("views").Value);
+            mediaStatistics.Views = AttributeToUInt64(element.Attribute("views"));
 
             return mediaStatistics;
         }

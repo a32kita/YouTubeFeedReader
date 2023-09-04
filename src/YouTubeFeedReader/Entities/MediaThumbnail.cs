@@ -29,9 +29,9 @@ namespace YouTubeFeedReader.Entities
         public static MediaThumbnail LoadFromXElement(XElement element)
         {
             var mediaThumbnail = new MediaThumbnail();
-            mediaThumbnail.Url = new Uri(element.Attribute("url")?.Value);
-            mediaThumbnail.Width = Int32.Parse(element.Attribute("width")?.Value);
-            mediaThumbnail.Height = Int32.Parse (element.Attribute("height")?.Value);
+            mediaThumbnail.Url = AttributeToUri(element.Attribute("url"));
+            mediaThumbnail.Width = AttributeToInt32(element.Attribute("width"));
+            mediaThumbnail.Height = AttributeToInt32(element.Attribute("height"));
 
             return mediaThumbnail;
         }

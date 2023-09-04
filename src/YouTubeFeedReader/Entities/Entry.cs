@@ -68,10 +68,10 @@ namespace YouTubeFeedReader.Entities
             entry.YouTubeVideoId = element.Element(XmlNsYt + "videoId")?.Value;
             entry.YouTubeChannelId = element.Element(XmlNsYt + "channelId")?.Value;
             entry.Title = element.Element(XmlNsAtom + "title")?.Value;
-            entry.Link = new Uri(element.Element(XmlNsAtom +"link")?.Attribute("href").Value);
+            entry.Link = AttributeToUri(element.Element(XmlNsAtom + "link")?.Attribute("href"));
             entry.Author = Author.LoadFromXElement(element.Element(XmlNsAtom + "author"));
-            entry.Published = DateTimeOffset.Parse(element.Element(XmlNsAtom + "published").Value);
-            entry.Updated = DateTimeOffset.Parse(element.Element(XmlNsAtom + "updated").Value);
+            entry.Published = ElementToDateTimeOffset(element.Element(XmlNsAtom + "published"));
+            entry.Updated = ElementToDateTimeOffset(element.Element(XmlNsAtom + "updated"));
             entry.MediaGroup = MediaGroup.LoadFromXElement(element.Element(XmlNsMedia + "group"));
 
             return entry;

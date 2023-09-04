@@ -35,10 +35,10 @@ namespace YouTubeFeedReader.Entities
         public static MediaStarRating LoadFromXElement(XElement element)
         {
             var mediaStarRating = new MediaStarRating();
-            mediaStarRating.Count = UInt64.Parse(element.Attribute("count").Value);
-            mediaStarRating.Average = Single.Parse(element.Attribute("average").Value);
-            mediaStarRating.Min = Single.Parse(element.Attribute("min").Value);
-            mediaStarRating.Max = Single.Parse(element.Attribute("max").Value);
+            mediaStarRating.Count = AttributeToUInt64(element.Attribute("count"));
+            mediaStarRating.Average = AttributeToSingle(element.Attribute("average"));
+            mediaStarRating.Min = AttributeToSingle(element.Attribute("min"));
+            mediaStarRating.Max = AttributeToSingle(element.Attribute("max"));
 
             return mediaStarRating;
         }
