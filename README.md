@@ -1,8 +1,8 @@
-## YouTube Feed Reader
+# YouTube Feed Reader
 YouTube Feed Reader is a library for reading YouTube channel feeds in .NET.
 
 
-### Example
+## Example
 The usage is very straightforward.
 
 1. Install the library from NuGet or similar sources, and declare the namespace.
@@ -34,3 +34,18 @@ using (var ytService = new YouTubeFeedService())
     Console.ReadLine();
 }
 ```
+
+
+## Install
+Now available on [NuGet](https://www.nuget.org/packages/YouTubeFeedReader/)
+
+```
+NuGet\Install-Package YouTubeFeedReader
+```
+
+
+## Platform
+YouTube Feed Reader is designed for .NET Standard 2.0, making it available for a wide range of .NET applications.
+
+Please refer to Microsoft's documentation for information on the targets that can apply .NET Standard 2.0 libraries:  
+https://learn.microsoft.com/ja-jp/dotnet/standard/net-standard?tabs=net-standard-2-0#select-net-standard-version
