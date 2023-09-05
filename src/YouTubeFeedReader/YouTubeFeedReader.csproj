@@ -9,7 +9,7 @@
 	<RepositoryUrl>https://github.com/a32kita/YouTubeFeedReader</RepositoryUrl>
 	<AssemblyVersion>$([System.DateTime]::Now.ToString('0.yy.M.dHH'))</AssemblyVersion>
 	<FileVersion>$([System.DateTime]::Now.ToString('0.yy.M.dHH'))</FileVersion>
-	<PackageTags>YouTube</PackageTags>
+	<PackageTags>YouTube; RSS; Feed; Video; Streaming </PackageTags>
 	<Description>YouTube Feed Reader is a library for reading YouTube channel feeds in .NET.</Description>
 	<Version>$([System.DateTime]::Now.ToString('0.yy.M.dHH'))</Version>
 	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
@@ -18,11 +18,16 @@
 	<Configurations>Debug;Release</Configurations>
 	<Product>$(Title)</Product>
 	<PackageReadmeFile>README.md</PackageReadmeFile>
+	<PackageIcon>PackageIcon.png</PackageIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Debug'">
 	<Version>$([System.DateTime]::Now.ToString('0.yy.M.dHH'))-beta-$([System.DateTime]::Now.ToString('mmss'))$([System.Guid]::NewGuid.ToString().Replace("-", "").Substring(0, 5))</Version>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="..\..\design\PackageIcon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Include="..\..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
